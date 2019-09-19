@@ -1,0 +1,511 @@
+#prenom, #nom, #fonction, #see_more_formateur{
+
+   margin-top: 5mm;
+   margin-bottom: 5mm;
+
+}
+
+@media only screen and (max-width:575px ) {
+
+    #fonction, #see_more_formateur{
+        margin-top: 0mm;
+    }
+
+    #prenom, #nom{
+        margin-top: 5mm;
+    }
+     
+}
+
+.meth_insc_dpc{
+    background-color: rgb(225, 240, 252); 
+
+    /* height: 500px; */
+}
+
+.dpc_fin{
+
+    background-color:  rgb(225, 240, 252); 
+}
+
+#border_fr_el, #border_fr_mix{
+ 
+    background-color: #1C2331;
+    color: white;
+}
+
+
+#first_actualites{
+    display: -webkit-flex;
+    display:         flex;
+    -webkit-justify-content: center;
+    justify-content: center;
+
+}
+
+
+
+#height_mixte{
+    margin-bottom: 40mm;
+    background-color: aquamarine;
+}
+
+
+
+/* Set a style for all buttons */
+#but_cand_sub {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    cursor: pointer;
+    /* width: 50%;
+	font-size:20px; */
+}
+/* button:hover {
+    opacity: 0.8;
+} */
+
+@media only  screen and (min-width:621px){
+    #modal_marg{
+    display: flex;
+    justify-content: center;
+    width: 50%;
+    }
+}
+
+
+@media only  screen and (max-width:621px){
+
+    #modal_marg{
+        display: flex;
+        justify-content: center;
+        /* width: 50%; */
+      }
+}
+
+
+
+/* The Close Button (x) */
+.close {
+    position: absolute;
+    right: 25px;
+    top: 0;
+    color: #000;
+    font-size: 35px;
+    font-weight: bold;
+}
+.close:hover,.close:focus {
+    color: red;
+    cursor: pointer;
+}
+
+
+@keyframes zoom {
+    from {transform: scale(0)} 
+    to {transform: scale(1)}
+}
+
+
+@media only screen and (max-width: 824px ){
+
+    #titre_devenir_intervenant {
+        width: 110%;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#domaine_activite{
+    display: flex;
+}
+
+@media only screen and  ( orientation : portrait)  {
+    #row_job{
+        margin-top: 20mm;
+    }
+}
+
+
+
+
+
+@media only screen and (max-width: 737px) and ( orientation : landscape)  {
+    #row_job{
+        margin-top: 80mm;
+    }
+}
+
+@media only screen and (max-width: 415px){
+
+    #job{
+        /* width: 100%; */
+    }
+
+    #img_recru{
+   
+        /* width:50%; */
+    }
+
+}
+
+#job{
+    display: flex;
+    justify-content: center;
+}
+
+@media only screen and (min-width: 750px){
+
+    #job{
+        display: flex;
+        justify-content: center;
+        /* width: 100%; */
+        /* background-color: #003e6f; */
+    }
+
+
+    #bloc_job{
+        width: 200mm;
+        /* display: flex; */
+        
+    }
+}
+
+
+
+
+
+
+
+/* Apropos de nous */
+
+#def_apropos_de_nous{
+    margin-left: 15%;
+    margin-right: 15%;
+   }
+   
+   #logo_info{
+       margin-top: 25mm;
+       /* margin-left: 85mm;  */
+       display: flex;
+       justify-content: center;
+       margin-bottom: 0mm;
+   }
+   
+   
+   #col_apropos{
+       display: flex;
+       justify-content: center;
+       flex-direction: column;
+       background-color:  rgb(20, 160, 150);
+       margin-right: 1mm;
+       color: white;
+   }
+   #content_col_apropos{
+       text-align: center;
+   }
+
+
+
+   #img_expertise, #img_innovation{
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: end;
+        -ms-flex-pack: end;
+            justify-content: end;
+}
+
+#shadow_valeur_partage{
+    float: right;
+}
+
+
+
+#second_row_valeur, #third_row_valeur {
+    margin-top: 20mm;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+}
+
+
+
+#res_nos_valeurs{
+    visibility: hidden;
+    height: 0mm;
+}
+
+
+footer{
+    /* margin-top: 10mm; */    /* display: flex; */
+    width: 100%;
+    /* height: 100%; */
+    /* margin-bottom: 0mm; */
+    /* position: absolute; */
+}
+
+@media only screen and (max-width:730px ) {
+    #first_row_valeur,#second_row_valeur, #third_row_valeur{
+        visibility: hidden;
+    }
+
+    #res_nos_valeurs{
+        visibility: visible;
+        /* margin-bottom: 150mm;
+        margin-top: -320mm; */
+        /* display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+            -ms-flex-direction: column;
+                flex-direction: column;
+        background-color: #3B5998; */
+        /* margin-left: 40%; */
+        /* background-color: blueviolet; */
+    }
+
+    #row_nosv{
+        /* margin-top:30mm; */
+    }
+
+    .non_res_nos_valeurs{
+        /* height: 0mm; */
+    }
+}
+
+@media only screen and (min-width:583px ){
+    #res_nos_valeurs{
+        /* margin-top: -200mm; */
+    }
+}
+
+@media only screen and (min-width:583px ) and (max-width:730px ) {
+    #res_nos_valeurs{
+        /* margin-top: -200mm; */
+
+    }
+}
+.card {
+    margin: 0 auto; /* Added */
+    float: none; /* Added */
+}
+
+#shadow_valeur, #shadow_valeur_partage{
+    margin-top: 1mm;
+    width: 50%;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+#desc_faq{
+    width: 100%;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    
+}
+
+
+@media only screen and (max-width:1000px ) {
+
+    #row_nosv{
+        margin-top: 15mm;
+    }
+}
+
+#row_nosv, #row_nosvf{
+    /* height:40%; */
+    display: flex;
+    /* margin-right: 15mm; */
+}
+
+
+
+.error_contact{
+    color: rgb(245, 220, 109);
+}
+
+
+
+
+
+#titre_obtenue_g_a {
+    margin-top: 10mm;
+    display: flex;
+    justify-content: flex-end;
+    width: 100%;
+    height: 100%;
+    /* margin-left: 25%; */
+}
+
+#titre_obtenue_g_a h4{
+
+    font-weight: bold;
+}
+
+
+#parcours_gilles_allano{
+    margin-top: 10mm;
+    display: flex;
+    justify-content: center;
+    height: 100%;
+    width: 100%;
+    /* margin-left: 25%; */
+    vertical-align: middle;
+}
+
+#parcours_gilles_allano .step{
+    margin-top: 1mm;
+    margin-left: 5mm;
+}
+
+
+
+#link_grippe{
+    text-decoration: none;
+    margin: auto;
+    display: flex;
+}
+
+
+@media only screen and (max-width:390px )  {
+    #m_top_desc_see_more_grippe{
+        margin-top: 15mm;
+        margin-left: 8%;
+        margin-right: 8%;
+        color: black;
+        /* background-color: #3f1111; */
+    }
+
+    #link_grippe{
+        width: 100%;
+        background-color: #ccc;
+    }
+}
+
+@media only screen and (min-width:391px ) and (max-width:3000px) {
+    #m_top_desc_see_more_grippe{
+        margin-top: 15mm;
+        /* margin-left: 5%;
+        margin-right: 5%; */
+        color: black;
+        /* background-color: #3f1111; */
+        margin: auto;
+    
+    }
+}
+
+
+#sec_see_more_act_grippe{
+    /* background-image: url("img/Actualités/grippe.jpg"); */
+    /* line-height:1.6; */
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    padding:1em;
+    background-repeat:no-repeat;
+    background-size: cover; 
+    height: auto;
+    width: 100%;
+    /* display: flex; */
+    /* justify-content: center; */
+}
+
+#background_desc_see_more_grippe{
+    display: flex;
+    justify-content: center;
+    margin: auto;
+    /* margin-left: 5%;
+    margin-right: 5%; */
+}
+
+
+#desc_see_more_grippe{
+    font-size: 16px;
+    /* margin-left: 70mm; */
+    /* margin-top:40mm; */
+    /* background-color: rgb(247, 240, 240); */
+    /* display: flex;
+    justify-content: center; */
+    color: white;
+    /* background-color: #2196f3; */
+    /* margin-left: 5%;
+    margin-right: 5%; */
+    margin: auto;
+}
+
+
+
+#resultrech{
+    text-align: center;
+    font-weight: bold;
+    /* margin-top: 5mm; */
+    display: -webkit-flex; /* Safari */
+    -webkit-align-items: center; /* Safari 7.0+ */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+   
+   }
+
+
+
+   #section_search{
+    /* margin-top: auto; */
+    /* display: flex; */
+    /* height: 100%; */
+    /* z-index: 100; */
+    /* margin-top: 100%; */
+}
+
+
+@media only screen and (max-width: 1200px) {
+    #section_search{
+    /* top: 200px; */
+    }
+}
+
+@media only screen and (max-width:500px ){
+
+
+    #f_row_dpc{
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        width: 100%;
+    }
+
+
+
+}
+
+
+
+
+
+
+
+

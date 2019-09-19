@@ -1,0 +1,23 @@
+[
+    {
+        "lat": "43.94931700000001",
+        "lng": "4.805527999999981",
+        "lieu": "Avignon",
+        "keterangan": "Aman ga ada begal",
+        "type": "parking"
+    },
+    {
+        "lat": "49.1193089",
+        "lng": "6.1757155999999895",
+        "lieu": "Metz",
+        "keterangan": "Ayo membaca buku",
+        "type": "library"
+    },
+    {
+        "lat": "49.847066",
+        "lng": "3.287399999999934",
+        "lieu": "Saint-Quentin",
+        "keterangan": "Discon belanja",
+        "type": "info"
+    }
+]

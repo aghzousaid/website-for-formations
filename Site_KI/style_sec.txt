@@ -1,0 +1,671 @@
+div.imgt_cn{ /* main container */
+   
+    width: 700px; /*width of largest image width*/
+    height: 900px; /* height of largest image height */
+    overflow: hidden;
+    position: relative; 
+}
+
+
+.imgt_cn .avant img, .imgt_cn .apres img{
+    width: 500px;
+    height: 600px; 
+}
+
+div.avant  { /* before and after DIVs within main container */
+    height: 100%;
+    position: absolute;
+    overflow: hidden; 
+    transition: all 2s ease-in-out; /* CSS transition. */
+    z-index: 1000;
+}
+ 
+div.apres{
+    z-index: 1001;/*z-index of after div should be smaller than before's*/
+}
+ 
+div.imgt_cn:hover div.avant{ /* onmouseover main container */
+    width: 0; /* change "before" div width to 0 to hide it */
+
+}
+
+div.imgt_cn:hover div.apres{ /* onmouseover main container */
+   
+    padding-right: 100px;
+
+}
+
+
+.imgtk_cn .apres:hover1 .apres { /* onmouseover main container */
+    -webkit-transform:scale(2,2); /* Safari et Chrome */
+    -moz-transform:scale(2,3); /* Firefox */
+    -ms-transform:scale(1.25); /*Internet Explorer 9*/
+    -o-transform:scale(3,3); /* Opera */
+    transform:scale(1.25);
+    padding-right: 50mm;
+    /* display: block;
+    visibility: visible;
+    */ 
+}
+
+
+
+
+div.imgt_cn div.apres{ /* onmouseover main container */
+    width: 800px; /* change "before" div width to 0 to hide it */
+
+}
+
+
+
+#footer_title{
+    text-align: center;
+    background-color: #2196f3;
+    hei
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+<section id="see_more_ele">
+    <br><br>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col" style="background-color:lavender; "><p id="e_learn">MIXTES</p></div>
+            <div class="col" > <p id="e_time"><i class="clock outline icon"></i>
+                <?php
+                    echo "<span>Durée Présentiel :  ".$_GET['duree_p']."H et Durée Non Présentiel : ".$_GET['duree_np']."H</span></p>";
+                ?>
+            </p></div>
+             <!-- /*style="background-color:orange;"* -->
+            <div class="col" style="background-color:lavender;"><p id="e_public"><i class="user md icon"></i>
+                
+            </p></div>
+        </div>
+    </div>
+
+    <?php
+        $db = mysqli_connect("localhost", "root", "", "image_upload");
+        mysqli_set_charset($db, "utf8");
+        $theme = $_GET['theme'];
+        $titre = $_GET['titre'];
+ 
+        $result =  mysqli_query($db, "SELECT * FROM mixtes where theme='$theme' and titre='$titre'" );
+        // var_dump($result);
+        $row = mysqli_fetch_array($result);
+        
+       
+        // while($row = mysqli_fetch_array($result)){
+        //     echo '<p>'.$row['description'].'</p>';
+        // }
+    ?>
+    <div class="row">
+    <div  class="col" id="intervenant">
+        <div class="card text-center text-white bg-secondary mb-3">
+            <div class="card-body">
+                <p class="card-text">
+                    <?php
+                    // $row = mysqli_fetch_array($result);
+                        echo '<p>'.htmlEntities($row['description']).'</p>';
+                    ?>
+                </p>
+            </div>
+        </div>
+    </div>
+
+ 
+
+
+    <div  class="col" id="intervenant">
+        <div class="card text-center text-white bg-secondary mb-3">
+            <div class="card-header">
+                <h4>COMPÉTENCES VISÉES</h4>
+            </div>
+            <div class="card-body">
+                <p class="card-text">
+                    <?php   
+                        echo '<p>'.htmlEntities($row['competence']).'</p>';
+                    ?>
+                </p>
+            </div>
+        </div>
+    </div>
+    </div>
+    
+    <div  class="row" id="intervenant">
+        <div class="card text-center text-white bg-secondary mb-3">
+            <div class="card-header">
+                <h4>DÉROULÉ PÉDAGOGIQUE</h4>
+            </div>
+            <div class="card-body">
+                <p class="card-text">
+                <div class="row">
+                
+                    <div class="col">
+                        <center><h4>Présentiel</h4></center>
+                        <?php
+                         echo '<p>'.htmlEntities($row['presentiel']).'</p>';
+                        ?>
+                    </div>
+
+                    <div class="col">
+                        <center><h4>Non Présentiel</h4></center>
+                        <?php
+                        echo '<p>'.htmlEntities($row['non_presentiel']).'</p>';
+                        ?>
+                    </div>
+                </div>
+                  
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <div  class="row" id="intervenant">
+        <div class="card text-center text-white bg-secondary mb-3">
+            <div class="card-header">
+                <h4>INTERVENANT</h4>
+            </div>
+            <div class="card-body">
+                <p class="card-text">
+                    <?php
+                        $result =  mysqli_query($db, "SELECT * FROM intervenant where titre='$titre'" );
+
+                        while ($row = mysqli_fetch_array($result)) {
+                            echo'<div class="row">
+                                <div class="col" id="interv">Nom : '.$row['nom'].' </div>
+                            
+                                <div class="col"  id="interv">Prénom : '.$row['prenom'].'</div>
+                                <div class="col" id="see_plus_inter">
+                                 
+                                        <a href="#"> 
+                                        <i style="font-size:40px" class="fa">&#xf0a9;</i></a>
+                                        <p>En savoir plus</p>
+                            
+                                </div>           
+                            </div>';
+                        }
+                    ?>
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <div  class="row" id="intervenant">
+        <div class="card text-center text-white bg-secondary mb-3">
+            <div class="card-header">
+                <h4>SESSIONS Â VENIR</h4>
+            </div>
+            <div class="card-body">
+                <h5 class="card-title"> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut </h5>
+                <p class="card-text">
+                    <div class="row" id="info_session">
+                    <div class="col" >
+                    <i class="map marker alternate icon"></i>LOCALISATION
+                    </div>
+                    <div class="col">
+                    <i class="calendar alternate icon"></i>
+                    </div>
+                    <div class="col">
+                    <button href="" class="btn btn-dark">JE M'INSCRIS</button>
+                    </div>
+                    </div>
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <!-- <div id="session">
+        <h4>SESSIONS Â VENIR</h4>
+
+        <div id="des_session">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut 
+        </div>
+
+        <br> <br> <br> <br> <br> <br>
+
+       
+    
+
+        <div class="row" id="info_session">
+            <div class="col" >
+            <i class="map marker alternate icon"></i>LOCALISATION
+            </div>
+            <div class="col">
+            <i class="calendar alternate icon"></i>
+            </div>
+            <div class="col">
+                <button href="">JE M'INSCRIS</button>
+            </div>
+        </div>
+       
+        
+    </div> -->
+    <br>
+    <br><br>
+</section>
+
+
+
+
+<script>
+    function OpenNewTab(){
+        var tmp = '<?php echo ''.$row['poste'].'' ?>';
+        window.location.href =tmp;
+    }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ <div>
+                <?php
+                       /* require("phpsqlajax_dbinfo.php");
+
+                        function parseToXML($htmlStr)
+                        {
+                        $xmlStr=str_replace('<','&lt;',$htmlStr);
+                        $xmlStr=str_replace('>','&gt;',$xmlStr);
+                        $xmlStr=str_replace('"','&quot;',$xmlStr);
+                        $xmlStr=str_replace("'",'&#39;',$xmlStr);
+                        $xmlStr=str_replace("&",'&amp;',$xmlStr);
+                        return $xmlStr;
+                        }
+                        
+                        $db = mysqli_connect("localhost", "root", "", "formation");
+                        $result =  mysqli_query($db, "SELECT * FROM mixtes WHERE 1");
+
+                        // Opens a connection to a MySQL server
+                        // $connection=mysqli_connect('localhost', $username, $password);
+                        // if (!$connection) {
+                        // die('Not connected : ' . mysqli_error());
+                        // }
+
+                        // Set the active MySQL database
+                        // $db_selected = mysqli_select_db($database, $connection);
+                        // if (!$db_selected) {
+                        // die ('Can\'t use db : ' . mysqli_error());
+                        // }
+
+                        // Select all the rows in the markers table
+                        // $query = "SELECT * FROM mixtes WHERE 1";
+                        // $result = mysqli_query($query);
+                        if (!$result) {
+                        die('Invalid query: ' . mysqli_error());
+                        }
+
+                        header("Content-type: text/xml");
+
+                        // Iterate through the rows, adding XML nodes for each
+                        while ($row = @mysqli_fetch_assoc($result)){
+                        // Add to XML document node
+                        $node = $doc->create_element("marker");
+                        $newnode = $parnode->append_child($node);
+
+                        $newnode->set_attribute("id", $row['id']);
+                        $newnode->set_attribute("theme", $row['theme']);
+                        $newnode->set_attribute("profession", $row['profession']);
+                        $newnode->set_attribute("region", $row['region']);
+                        $newnode->set_attribute("lat", $row['lat']);
+                        $newnode->set_attribute("long", $row['long']);
+                        $newnode->set_attribute("titre", $row['titre']);
+                        $newnode->set_attribute("ville", $row['ville']);
+                        }
+
+                        $xmlfile = $doc->dump_mem();
+                        // echo $xmlfile;
+
+
+                        // Start XML file, echo parent node
+                       /* echo "<?xml version='1.0' ?>";
+                        echo '<markers>';
+                        $ind=0;
+                        // Iterate through the rows, printing XML nodes for each
+                        while ($row = mysqli_fetch_assoc($result)){
+                        // Add to XML document node
+                        echo '<marker ';
+                        echo 'id="' . $row['id'] . '" ';
+                        // echo 'theme="' . parseToXML($row['theme']) . '" ';
+                        // echo 'profession="' . parseToXML($row['profession']) . '" ';
+                        echo 'region="' . $row['region'] . '" ';
+                        echo 'lat="' . $row['lat'] . '" ';
+                        echo 'long="' . $row['long'] . '" ';
+                        // echo 'titre="' . parseToXML($row['titre']) . '" ';
+                        echo 'ville="' . $row['ville'] . '" ';
+                        echo '/>';
+                        $ind = $ind + 1;
+                        }
+
+                        // End XML file
+                        echo '</markers>';*/
+
+                ?>
+        </div>
+
+
+
+
+
+<?php
+  //  require("phpsqlajax_dbinfo.php");
+
+    function parseToXML($htmlStr)
+    {
+    $xmlStr=str_replace('<','&lt;',$htmlStr);
+    $xmlStr=str_replace('>','&gt;',$xmlStr);
+    $xmlStr=str_replace('"','&quot;',$xmlStr);
+    $xmlStr=str_replace("'",'&#39;',$xmlStr);
+    $xmlStr=str_replace("&",'&amp;',$xmlStr);
+    return $xmlStr;
+    }
+    
+    $db = mysqli_connect("localhost", "root", "", "formation");
+    $result =  mysqli_query($db, "SELECT * FROM mixtes WHERE 1");
+
+    // Opens a connection to a MySQL server
+    // $connection=mysqli_connect('localhost', $username, $password);
+    // if (!$connection) {
+    // die('Not connected : ' . mysqli_error());
+    // }
+
+    // Set the active MySQL database
+    // $db_selected = mysqli_select_db($database, $connection);
+    // if (!$db_selected) {
+    // die ('Can\'t use db : ' . mysqli_error());
+    // }
+
+    // Select all the rows in the markers table
+    // $query = "SELECT * FROM mixtes WHERE 1";
+    // $result = mysqli_query($query);
+    // if (!$result) {
+    // die('Invalid query: ' . mysqli_error());
+    // }
+
+    header("Content-type: text/xml");
+
+    // Iterate through the rows, adding XML nodes for each
+    while ($row = @mysqli_fetch_assoc($result)){
+    // Add to XML document node
+    $node = $doc->create_element("marker");
+    $newnode = $parnode->append_child($node);
+
+    $newnode->set_attribute("id", $row['id']);
+    $newnode->set_attribute("theme", $row['theme']);
+    $newnode->set_attribute("profession", $row['profession']);
+    $newnode->set_attribute("region", $row['region']);
+    $newnode->set_attribute("lat", $row['lat']);
+    $newnode->set_attribute("long", $row['long']);
+    $newnode->set_attribute("titre", $row['titre']);
+    $newnode->set_attribute("ville", $row['ville']);
+    }
+
+    $xmlfile = $doc->dump_mem();
+    // echo $xmlfile;
+
+    echo'<pre>';
+    // Start XML file, echo parent node
+    echo "<?xml version='1.0' ?>";
+    echo '<markers>';
+    $ind=0;
+    // Iterate through the rows, printing XML nodes for each
+    while ($row = mysqli_fetch_assoc($result)){
+    // Add to XML document node
+    echo '<marker ';
+    echo 'id="' . $row['id'] . '" ';
+    echo 'theme="' . parseToXML($row['theme']) . '" ';
+    echo 'profession="' . parseToXML($row['profession']) . '" ';
+    echo 'region="' . $row['region'] . '" ';
+    echo 'lat="' . $row['lat'] . '" ';
+    echo 'long="' . $row['long'] . '" ';
+    echo 'titre="' . parseToXML($row['titre']) . '" ';
+    echo 'ville="' . $row['ville'] . '" ';
+    echo '/>';
+    $ind = $ind + 1;
+    }
+
+    // End XML file
+    echo '</markers>';
+    echo'</pre>';
+
+?>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<?php
+  // $dom = new DOMDocument("1.0");
+  // $node = $dom->createElement("markers");
+  // $parnode = $dom->appendChild($node);
+
+  // Opens a connection to a MySQL server
+  // $db = mysqli_connect("localhost", "root", "", "formation");
+  // $result =  mysqli_query($db, "SELECT * FROM mixtes");
+
+  // header("Content-type: text/xml");
+
+  // Iterate through the rows, adding XML nodes for each
+
+  // while ($row = mysqli_fetch_array($result)){
+    // Add to XML document node
+  //   $node = $dom->createElement("marker");
+  //   $newnode = $parnode->appendChild($node);
+
+  //   $newnode->setAttribute("id", $row['id']);
+  //     $newnode->setAttribute("theme", $row['theme']);
+  //     $newnode->setAttribute("profession", utf8_encode($row['profession']));
+  //     $newnode->setAttribute("region", $row['region']);
+  //     $newnode->setAttribute("lat", $row['lat']);
+  //     $newnode->setAttribute("long", $row['long']);
+  //     $newnode->setAttribute("titre", $row['titre']);
+  //     $newnode->setAttribute("ville", $row['ville']);
+  // }
+ 
+  // echo $dom->saveXML();
+  //   $dom->formatOutput = true;
+  //  $dom->save("/Files/test.xml");
+  
+//   $f = fopen('test.xml', 'w+');
+//   fwrite($f, utf8_decode($dom->saveXML()));
+//   fclose($f);
+?>
+
+
+
+json
+
+ <?php 
+//  $db = mysqli_connect("localhost", "root", "", "formation");
+
+//  $result =  mysqli_query($db, "SELECT * FROM mixtes");
+
+// $response = array();
+// $posts = array();
+// while($row=mysqli_fetch_array($result)) { 
+//   $theme=$row['theme']; 
+//   $profession=$row['profession']; 
+//   $region=$row['region']; 
+//   $lat=$row['lat'];
+//   $long=$row['long']; 
+//   $titre=$row['titre'];
+//   $ville=$row['ville']; 
+
+
+//   $posts[] = array('theme'=> $theme, 'profession'=> $profession, 'region'=>$region, 'lat'=>$lat, 'long'=>$long, 'titre'=>$titre, 'ville'=>$ville);
+// } 
+
+// $response['posts'] = $posts;
+// // echo $response;
+// $fp = fopen('results.json', 'w');
+// fwrite($fp, json_encode($response));
+// fclose($fp);
+
+
+// echo var_dump($posts);
+// $json_data = json_encode($posts);
+// file_put_contents('myfile.json', $json_data);
+
+?>
+
+
+
+
+ <!-- <!DOCTYPE html>  
+ <html>  
+      <head>  
+           <title>Webslesson Tutorial | Append Data to JSON File using PHP</title>  
+           <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>  
+           <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />  
+           <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>  
+      </head>  
+      <body>   -->
+
+<?php
+// class ArrayValue implements JsonSerializable {
+//     public function __construct(array $array) {
+//         $this->array = $array;
+//     }
+
+//     public function jsonSerialize() {
+//         return $this->array;
+//     }
+// }
+
+//  $db = mysqli_connect("localhost", "root", "", "formation");
+
+//  $result =  mysqli_query($db, "SELECT * FROM mixtes");
+
+// $response = array();
+// $posts = array();
+// while($row=mysqli_fetch_array($result)) { 
+//   $theme=$row['theme']; 
+//   $profession=$row['profession']; 
+//   $region=$row['region']; 
+//   $lat=$row['lat'];
+//   $long=$row['long']; 
+//   $titre=$row['titre'];
+//   $ville=$row['ville']; 
+// }
+
+
+// $current_data = file_get_contents('results.json');  
+// $array_data = json_decode($current_data, true); 
+// $array = array(
+//   'theme'=> $theme, 
+//   'profession'=> $profession, 
+//   'region'=>$region, 
+//   'lat'=>$lat, 'long'=>$long, 
+//   'titre'=>$titre, 'ville'=>$ville
+// );
+// //  json_encode(new ArrayValue($array), JSON_PRETTY_PRINT);
+
+// $array_data[] = $array;  
+// $final_data = json_encode($array_data);  
+// if(file_put_contents('results.json', $final_data))  
+// {  
+//       $message = "<label class='text-success'>File Appended Success fully</p>";  
+//       echo  $message ;
+// }  
+// else{
+//   echo "er";
+// }
+// var_dump($array);
+//  $fp = fopen('results.json', 'w');
+// fwrite($fp,json_encode(new ArrayValue($array), JSON_PRETTY_PRINT));
+// fclose($fp);
+
+?>
+
+ <!-- </body>  
+ </html>   -->
+
+
+
+
+
+
+
+
+/nos valeurs/
+ <section  class="non_res_nos_valeurs">
+    <div class="row" id="first_row_valeur">
+        <div class="col" id="img_expertise">
+            <img src="img/nos_valeurs/expertise.jpg" alt="">
+        </div>
+        <div class="col" >
+        <div class="shadow-lg p-3 mb-5 " id="shadow_valeur">
+            <h4>EXPERTISE</h4>
+            <p>Nous collaborons avec des experts de qualité,
+            capables d’animer une formation répondant
+            aux exigences du DPC.<p>
+        </div>
+        </div>
+    </div>
+
+    <div class="row" id="second_row_valeur">
+        <div class="col">
+        <div class="shadow-lg p-3 mb-5 "  id="shadow_valeur_partage">
+            <h4>PARTAGE</h4>
+            <p>Vous aurez l’occasion, lors des formations DPC,
+            de partager, d’échanger vos connaissances
+            ainsi que vos savoirs avec des professionnels
+            de santé.</p>
+        </div>
+        </div>
+        <div class="col" id="img_partage">
+            <img src="img/nos_valeurs/partage.jpg" alt="">
+        </div>
+    </div>
+</section>

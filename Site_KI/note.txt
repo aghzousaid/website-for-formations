@@ -1,0 +1,81 @@
+colorMag
+IAMSocial
+Envo Magazine
+Movers Packers
+Galway Lite
+Book Rev Lite
+The WP
+
+//
+fiche incomplet
+Patrick BERQUIN  
+G�rard Bourrel 
+
+Christian LE MAREC
+Emmanuelle PIET : pas fini
+Vincent Ravery : pas de cv
+Olivier ALENDA  pas de cv
+Morgan ROUPRET pas de cv
+pierre bigot :  pas de cv
+Antoine Lemaire  :  pas de cv, link existe
+Alexis BURNOD :  pas de cv
+Bich  DANG-VU : pas de cv, link existe 
+Caroline MAINDET  : pas de cv, link existe 
+Christian MINELLO : pas de cv          
+Laurent LABREZE : pas de cv          
+St�phane FERRANDO : pas de cv
+
+
+
+
+
+<script>
+                // on click search results...
+                $(document).on("click", "#display-button" , function() { 
+                    var value = $("#search-data").val(); 
+                    if (value.length != 0) {
+                        //alert(99933);
+                        searchData(value);
+                    } else {     
+                        //  $('#search-result-container').hide();
+                    } 	 
+                });
+
+                // This function helps to send the request to retrieve data from mysql database...
+                function searchData(val){
+                    $('#search-result-container').show();
+                    $('#search-result-container').html('<div><img src="preloader.gif" width="50px;" height="50px"> <span style="font-size: 20px;">Please Wait...</span></div>');
+                    $.post('controller.php',{'search-data': val}, function(data){
+                                    
+                        if(data != "")
+                            $('#search-result-container').html(data);
+                        else				
+                        $('#search-result-container').html("<div class='search-result'>No Result Found...</div>");
+                    }).fail(function(xhr, ajaxOptions, thrownError) { //any errors?
+                                    
+                    alert(thrownError); //alert with HTTP error
+                                                    
+                    });
+                }
+        </script>
+
+
+
+
+        	
+
+				// var str = getParameter('searchData');
+				// // var str =  getAllUrlParams().searchData;
+			    // var xhttp;
+                // if (str.length == 0) { 
+                //     document.getElementById("txtHint").innerHTML = "";
+                    
+                // }
+                // xhttp = new XMLHttpRequest();
+                // xhttp.onreadystatechange = function() {
+                //     if (this.readyState == 4 && this.status == 200) {
+                //     document.getElementById("txtHint").innerHTML = this.responseText;
+                //     }
+                // };
+                // xhttp.open("GET", "controller.php?q="+str, true);
+				// xhttp.send();  
